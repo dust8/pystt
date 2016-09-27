@@ -27,8 +27,8 @@ $ pip install pystt
 >>> import pystt  
 
 >>> pystt.dumps(['value1', 'value2', 'value3'])    
-'value1/value2/value3'   
+'value1/value2/value3/'
 
->>> pystt.loads('key1@=value1/key2@=value2/key3@=value3')
+>>> pystt.loads('key1@=value1/key2@=value2/key3@=value3/')
 {'key1': 'value1', 'key2': 'value2', 'key3': 'value3'}
 ```

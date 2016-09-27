@@ -7,13 +7,13 @@ class DumpsError(Exception):
 
 def dumps(data):
     if isinstance(data, dict):
-        return '/'.join([dumps(k) + '@=' + dumps(data[k]) for k in data])
+        return '/'.join([dumps(k) + '@=' + dumps(data[k]) for k in data]) + '/'
     elif isinstance(data, list):
-        return '/'.join([dumps(i) for i in data])
+        return '/'.join([dumps(i) for i in data]) + '/'
     elif isinstance(data, str):
         return escape_string(data)
     else:
-        raise DumpsError('expected {}'.format(data))
+        raise DumpsError('found {}'.format(data))
 
 
 def loads(data):
@@ -22,6 +22,8 @@ def loads(data):
         l = []
         d = {}
         for i in datas:
+            if i == '':
+                continue
             i_decode = loads(i)
             if isinstance(i_decode, dict):
                 d.update(i_decode)

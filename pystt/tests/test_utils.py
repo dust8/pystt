@@ -1,9 +1,8 @@
 import unittest
-from ..utils import escape_string, unescape_string
+from pystt.utils import escape_string, unescape_string
 
 
 class TestEscape(unittest.TestCase):
-
     def test_forward_slash(self):
         self.assertEqual('key@S', escape_string('key/'))
 
@@ -12,7 +11,6 @@ class TestEscape(unittest.TestCase):
 
 
 class TestUnescape(unittest.TestCase):
-
     def test_forward_slash(self):
         self.assertEqual('key/', unescape_string('key@S'))
 
